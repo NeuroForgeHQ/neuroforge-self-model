@@ -2,7 +2,7 @@
 
 ## Current verified scope
 
-M1-M5 are implemented and unit-tested.
+M1-M9 are implemented and locally validated. M10 acceptance harness is implemented, but real Windows evidence is still pending.
 
 ```text
 M0  Self-State Contracts & Projection Foundation          [ ]
@@ -11,49 +11,71 @@ M2  Capability & Limitation Projection                   [x]
 M3  Self-Relevant Knowledge State & Uncertainty          [x]
 M4  Recent Action & Outcome Projection                   [x]
 M5  Conflict Reconciliation & Freshness Consumption      [x]
-M6  Runtime + Temporal Awareness Integration             [ ]
-M7  Goals & Drives + Attention Integration               [ ]
-M8  World Model + Memory Integration                     [ ]
-M9  Planner + Autonomy Consumer Integration              [ ]
-M10 Real-PC Continuous Self-Model Acceptance             [ ]
+M6  Runtime + Temporal Awareness Integration             [x]
+M7  Goals & Drives + Attention Integration               [x]
+M8  World Model + Memory Integration                     [x]
+M9  Planner + Autonomy Consumer Integration              [x]
+M10 Real-PC Continuous Self-Model Acceptance             [ ]  harness ready
 ```
 
-Overall verified implementation: **5 / 11 milestones (45%)**.
+Overall verified milestone completion: **9 / 11 (82%)**.
 
-## Evidence
+## Implementation evidence
 
-Implementation files:
+Core:
 
 - `self_model/core.py`
+- `self_model/integration.py`
+- `self_model/acceptance.py`
 - `self_model/__init__.py`
 
 Tests:
 
 - `tests/test_m1_m5.py`
+- `tests/test_m6_m10.py`
 
-Validation command:
+## Local validation
 
-```bash
-python -m unittest discover -s tests -v
-```
-
-Validation result on the authored code:
+M1-M5 focused validation:
 
 ```text
-Ran 11 tests
-OK
+11 tests PASS
 ```
+
+M6-M10 code-path focused validation:
+
+```text
+7 tests PASS
+```
+
+No CI was run.
 
 ## Verified boundaries
 
-- M1 projects Runtime/Planner state and does not expose task lifecycle mutation APIs.
-- M2 consumes owner-sourced capability evidence; Self Model is not capability authority.
-- M3 rejects categories outside bounded self-relevant epistemic state.
-- M4 treats unverified success as `unverified` and keeps only bounded recent projection.
-- M5 consumes freshness classifications and surfaces stale/conflicted state without calculating temporal freshness.
+- M6 consumes Runtime/Planner operational state and Temporal Awareness metadata without duplicating temporal calculation.
+- M7 preserves Goals & Drives ownership of objectives/blockers and Attention ownership of focus.
+- M8 keeps World Model as live environment owner and Memory as historical owner; memory projection is bounded.
+- M9 produces read-only Planner/Autonomy views and does not emit permission, risk, authorization or action decisions.
+- M10 harness fails closed when evidence is not real Windows/owner-source evidence.
 
-## Not yet claimed
+## M10 status
 
-- M0 has not been independently validated against its full foundation gate.
-- M6-M9 real integrations are not implemented.
-- M10 real Windows acceptance is not performed.
+The M10 harness is implemented in `self_model/acceptance.py`.
+
+M10 is **not accepted yet** because its milestone gate explicitly requires a real Windows session with:
+
+- real owner-source inputs;
+- continuous source-traceable snapshots;
+- long-session evidence;
+- CPU/memory measurements;
+- stale-state scenario evidence;
+- conflict scenario evidence;
+- fail-closed behavior when owner evidence is missing.
+
+This must be run later on the real NeuroForge Windows PC. Simulated data or CI must not be used to claim M10 PASS.
+
+## CI status
+
+**HOLD — not run.**
+
+CI can be done later together with the other NeuroForge repositories, as requested.
