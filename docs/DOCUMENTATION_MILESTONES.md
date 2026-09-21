@@ -8,15 +8,15 @@ Documentation ka goal large wiki banana nahi hai. Har document ka direct relatio
 
 ## Truthful Status
 
-**0 / 9 documentation milestones complete — 0%.**
+**6 / 9 documentation milestones complete — 67%.**
 
 ```text
-D0  Architecture & Ownership Boundaries             [ ]
-D1  Self-State Schema & Provenance                  [ ]
-D2  Projection Semantics                            [ ]
-D3  Conflict, Uncertainty & Freshness               [ ]
-D4  Integration Contracts                           [ ]
-D5  Consumer/API Contracts                          [ ]
+D0  Architecture & Ownership Boundaries             [x]
+D1  Self-State Schema & Provenance                  [x]
+D2  Projection Semantics                            [x]
+D3  Conflict, Uncertainty & Freshness               [x]
+D4  Integration Contracts                           [x]
+D5  Consumer/API Contracts                          [x]
 D6  Testing & Evidence Guide                        [ ]
 D7  Privacy, Retention & Failure Boundaries         [ ]
 D8  Real-PC Acceptance Guide                        [ ]
@@ -33,7 +33,7 @@ D8  Real-PC Acceptance Guide                        [ ]
 
 ---
 
-## [ ] D0 — Architecture & Ownership Boundaries
+## [x] D0 — Architecture & Ownership Boundaries
 
 **Goal:** Self Model ka exact architectural role explain karna.
 
@@ -57,7 +57,7 @@ Document:
 
 ---
 
-## [ ] D1 — Self-State Schema & Provenance
+## [x] D1 — Self-State Schema & Provenance
 
 **Goal:** Self-state fields aur source ownership formalize karna.
 
@@ -83,7 +83,7 @@ Document:
 
 ---
 
-## [ ] D2 — Projection Semantics
+## [x] D2 — Projection Semantics
 
 **Goal:** M1-M4 projection behavior explain karna.
 
@@ -106,7 +106,7 @@ Document:
 
 ---
 
-## [ ] D3 — Conflict, Uncertainty & Freshness
+## [x] D3 — Conflict, Uncertainty & Freshness
 
 **Goal:** M3/M5 fail-closed state behavior define karna.
 
@@ -132,7 +132,7 @@ Document:
 
 ---
 
-## [ ] D4 — Integration Contracts
+## [x] D4 — Integration Contracts
 
 **Goal:** M6-M8 owner-repository interfaces document karna.
 
@@ -165,7 +165,7 @@ Har integration ke liye:
 
 ---
 
-## [ ] D5 — Consumer/API Contracts
+## [x] D5 — Consumer/API Contracts
 
 **Goal:** M9 downstream read-only usage document karna.
 
