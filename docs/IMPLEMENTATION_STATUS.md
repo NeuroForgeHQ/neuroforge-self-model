@@ -42,11 +42,13 @@ M1-M5 focused validation:
 11 tests PASS
 ```
 
-M6-M10 code-path focused validation:
+M6-M10 code-path suite:
 
 ```text
-7 tests PASS
+8 test methods currently present
 ```
+
+An older status note recorded 7 tests PASS. That numeric count is stale/inconsistent with the current test file and must not be treated as fresh validation evidence until the suite is rerun.
 
 No CI was run.
 
