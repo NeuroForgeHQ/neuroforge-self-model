@@ -34,3 +34,32 @@ __all__ = [
     "SelfStateReconciler",
     "SourceValue",
 ]
+
+
+from .integration import (
+    ConsumerViews,
+    GoalsAttentionIntegrator,
+    IntegratedSelfState,
+    RuntimeTemporalIntegrator,
+    WorldMemoryIntegrator,
+    merge_states,
+)
+from .acceptance import (
+    AcceptanceResult,
+    AcceptanceThresholds,
+    RealPCAcceptanceHarness,
+    RealPCEvidence,
+)
+
+__all__ += [
+    "ConsumerViews",
+    "GoalsAttentionIntegrator",
+    "IntegratedSelfState",
+    "RuntimeTemporalIntegrator",
+    "WorldMemoryIntegrator",
+    "merge_states",
+    "AcceptanceResult",
+    "AcceptanceThresholds",
+    "RealPCAcceptanceHarness",
+    "RealPCEvidence",
+]
