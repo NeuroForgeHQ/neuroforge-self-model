@@ -8,10 +8,10 @@ Self Model ka role **owner systems ki state ko duplicate karna nahi**, balki unk
 
 ## Truthful Status
 
-**5 / 11 milestones complete — 45% verified implementation.**
+**9 / 11 milestones complete — 82% verified implementation.**
 
 ```text
-[█████████░░░░░░░░░░░] 45%
+[████████████████░░░░] 82%
 ```
 
 README/documentation ko implementation completion nahi maana jayega. Milestone tabhi complete hoga jab required code, tests aur evidence available hon.
@@ -108,47 +108,47 @@ Examples:
 
 ---
 
-### [ ] M6 — Runtime + Temporal Awareness Integration
+### [x] M6 — Runtime + Temporal Awareness Integration
 
 **Scope:** Runtime se live operational state aur Temporal Awareness se age/freshness/duration consume karke coherent self snapshot banana.
 
 **Deliverables:** Adapters, event hooks, integration tests.
 
-**Acceptance gate:** Self Model duplicate Runtime lifecycle ya Temporal calculations own na kare.
+**Acceptance gate:** Self Model duplicate Runtime lifecycle ya Temporal calculations own na kare. **VERIFIED:** focused local integration tests PASS.
 
 ---
 
-### [ ] M7 — Goals & Drives + Attention Integration
+### [x] M7 — Goals & Drives + Attention Integration
 
 **Scope:** Goals & Drives se active objectives/blockers aur Attention se current focus/focus reason ko self-state projection me include karna.
 
 **Deliverables:** Goal/attention adapters, projection mapping, integration tests.
 
-**Acceptance gate:** Goal ownership Goals & Drives ke paas aur focus ownership Attention ke paas rahe; Self Model sirf reflect kare.
+**Acceptance gate:** Goal ownership Goals & Drives ke paas aur focus ownership Attention ke paas rahe; Self Model sirf reflect kare. **VERIFIED:** focused local integration tests PASS.
 
 ---
 
-### [ ] M8 — World Model + Memory Integration
+### [x] M8 — World Model + Memory Integration
 
 **Scope:** World Model se current environment/self relation aur Memory se selected relevant historical self-context consume karna.
 
 **Deliverables:** World/Memory adapters, bounded context selection, retention boundary, integration tests.
 
-**Acceptance gate:** Self Model environment model ya long-term memory store na bane; full live self-state blindly persist na ho.
+**Acceptance gate:** Self Model environment model ya long-term memory store na bane; full live self-state blindly persist na ho. **VERIFIED:** focused local integration tests PASS.
 
 ---
 
-### [ ] M9 — Planner + Autonomy Consumer Integration
+### [x] M9 — Planner + Autonomy Consumer Integration
 
 **Scope:** Planner ko current capability/limitation/self-state context dena aur Autonomy ko current operational self-state expose karna.
 
 **Deliverables:** Read-only consumer adapters, contracts, end-to-end tests.
 
-**Acceptance gate:** Self Model planning, permission, risk policy, authorization ya action decision own na kare; sirf evidence-backed state provide kare.
+**Acceptance gate:** Self Model planning, permission, risk policy, authorization ya action decision own na kare; sirf evidence-backed state provide kare. **VERIFIED:** focused local integration tests PASS.
 
 ---
 
-### [ ] M10 — Real-PC Continuous Self-Model Acceptance
+### [ ] M10 — Real-PC Continuous Self-Model Acceptance *(harness implemented; real-PC run pending)*
 
 **Scope:** Real Windows session me multi-owner inputs se task/focus/capability/limitation/knowledge/action-result self-state continuously project aur reconcile karna.
 
