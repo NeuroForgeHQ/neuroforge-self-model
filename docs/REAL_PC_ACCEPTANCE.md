@@ -58,7 +58,7 @@ Provide evidence classified stale by the appropriate owner/Temporal Awareness. E
 Provide two live contradictory candidates for the same field. Expected behavior: conflicted status, no silent merge, refresh requested.
 
 ### Missing-owner fail-closed scenario
-Remove/interupt required owner evidence. Expected behavior: missing state is no longer claimed as known/current and no fabricated substitute appears.
+Remove/interrupt required owner evidence. Expected behavior: missing state is no longer claimed as known/current and no fabricated substitute appears.
 
 ## Source-trace requirements
 Every accepted snapshot must have non-empty source_trace. Every projected field must include owner and source.
