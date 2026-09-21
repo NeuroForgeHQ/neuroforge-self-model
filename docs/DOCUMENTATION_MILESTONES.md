@@ -8,7 +8,7 @@ Documentation ka goal large wiki banana nahi hai. Har document ka direct relatio
 
 ## Truthful Status
 
-**6 / 9 documentation milestones complete — 67%.**
+**9 / 9 documentation milestones complete — 100%.**
 
 ```text
 D0  Architecture & Ownership Boundaries             [x]
@@ -17,9 +17,9 @@ D2  Projection Semantics                            [x]
 D3  Conflict, Uncertainty & Freshness               [x]
 D4  Integration Contracts                           [x]
 D5  Consumer/API Contracts                          [x]
-D6  Testing & Evidence Guide                        [ ]
-D7  Privacy, Retention & Failure Boundaries         [ ]
-D8  Real-PC Acceptance Guide                        [ ]
+D6  Testing & Evidence Guide                        [x]
+D7  Privacy, Retention & Failure Boundaries         [x]
+D8  Real-PC Acceptance Guide                        [x]
 ```
 
 ## Documentation Rules
@@ -191,7 +191,7 @@ Document:
 
 ---
 
-## [ ] D6 — Testing & Evidence Guide
+## [x] D6 — Testing & Evidence Guide
 
 **Goal:** Milestone verification reproducible banana.
 
@@ -215,7 +215,7 @@ Document:
 
 ---
 
-## [ ] D7 — Privacy, Retention & Failure Boundaries
+## [x] D7 — Privacy, Retention & Failure Boundaries
 
 **Goal:** Self-state persistence aur failure behavior clear karna.
 
@@ -241,7 +241,7 @@ Document:
 
 ---
 
-## [ ] D8 — Real-PC Acceptance Guide
+## [x] D8 — Real-PC Acceptance Guide
 
 **Goal:** M10 ko real Windows machine par reproducibly validate karna.
 
