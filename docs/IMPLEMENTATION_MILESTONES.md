@@ -8,10 +8,10 @@ Self Model ka role **owner systems ki state ko duplicate karna nahi**, balki unk
 
 ## Truthful Status
 
-**0 / 11 milestones complete — 0% implementation.**
+**5 / 11 milestones complete — 45% verified implementation.**
 
 ```text
-[░░░░░░░░░░░░░░░░░░░░] 0%
+[█████████░░░░░░░░░░░] 45%
 ```
 
 README/documentation ko implementation completion nahi maana jayega. Milestone tabhi complete hoga jab required code, tests aur evidence available hon.
@@ -51,27 +51,27 @@ Self Model:
 
 ---
 
-### [ ] M1 — Current Operational-State Projection
+### [x] M1 — Current Operational-State Projection
 
 **Scope:** Runtime/Planner se current task, subtask, session, active module/process aur execution-state ko read-only/self-state projection ke roop me represent karna.
 
 **Deliverables:** Runtime/Planner adapters, operational-state projector, bounded current snapshot, tests.
 
-**Acceptance gate:** Self Model start/pause/block/complete task lifecycle independently own ya mutate na kare; owner state traceable rahe.
+**Acceptance gate:** Self Model start/pause/block/complete task lifecycle independently own ya mutate na kare; owner state traceable rahe. **VERIFIED:** unit tests PASS.
 
 ---
 
-### [ ] M2 — Capability & Limitation Projection
+### [x] M2 — Capability & Limitation Projection
 
 **Scope:** Tools, Runtime aur relevant owner modules se evidence-backed capabilities, unavailable capabilities, permission requirements, blockers aur resource limitations ko self-state me represent karna.
 
 **Deliverables:** Capability/limitation projection model, source adapters, evidence references, tests.
 
-**Acceptance gate:** Self Model independent capability authority/registry na bane; unsupported capability available claim na ho; unknown state explicit rahe.
+**Acceptance gate:** Self Model independent capability authority/registry na bane; unsupported capability available claim na ho; unknown state explicit rahe. **VERIFIED:** unit tests PASS.
 
 ---
 
-### [ ] M3 — Self-Relevant Knowledge State & Uncertainty
+### [x] M3 — Self-Relevant Knowledge State & Uncertainty
 
 **Scope:** Sirf operationally self-relevant facts ke liye known/unknown/uncertain/stale/conflicted/not_observed state represent karna.
 
@@ -84,27 +84,27 @@ Examples:
 
 **Deliverables:** Self-knowledge projection model, confidence/provenance mapping, uncertainty queries, tests.
 
-**Acceptance gate:** Self Model general knowledge base ya reasoning engine na bane; missing/stale evidence ko known fact ke roop me expose na kare.
+**Acceptance gate:** Self Model general knowledge base ya reasoning engine na bane; missing/stale evidence ko known fact ke roop me expose na kare. **VERIFIED:** unit tests PASS.
 
 ---
 
-### [ ] M4 — Recent Action & Outcome Projection
+### [x] M4 — Recent Action & Outcome Projection
 
 **Scope:** Runtime/Tools/Autonomy se bounded recent verified action/result state consume karke current self-state me last/recent action context expose karna.
 
 **Deliverables:** Action-result adapters, bounded recent projection, verification-state mapping, tests.
 
-**Acceptance gate:** Self Model action execute, verify ya long-term history own na kare; action request ko verified success na maana jaye.
+**Acceptance gate:** Self Model action execute, verify ya long-term history own na kare; action request ko verified success na maana jaye. **VERIFIED:** unit tests PASS.
 
 ---
 
-### [ ] M5 — Self-State Conflict Reconciliation & Freshness Consumption
+### [x] M5 — Self-State Conflict Reconciliation & Freshness Consumption
 
 **Scope:** Multiple owner modules se conflicting self-state detect karna; Temporal Awareness ke age/freshness signals consume karke stale/conflicted state expose karna.
 
 **Deliverables:** Conflict detector, reconciliation status, temporal adapter, refresh-request signals, tests.
 
-**Acceptance gate:** Self Model apna separate freshness engine na banaye; conflicting sources silently merge na hon; source conflict inspectable rahe.
+**Acceptance gate:** Self Model apna separate freshness engine na banaye; conflicting sources silently merge na hon; source conflict inspectable rahe. **VERIFIED:** unit tests PASS.
 
 ---
 
