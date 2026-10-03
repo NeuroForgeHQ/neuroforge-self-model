@@ -8,10 +8,10 @@ Self Model ka role **owner systems ki state ko duplicate karna nahi**, balki unk
 
 ## Truthful Status
 
-**9 / 11 milestones complete — 82% verified implementation.**
+**11 / 11 milestones complete — 100% verified implementation.**
 
 ```text
-[████████████████░░░░] 82%
+[████████████████████] 100%
 ```
 
 README/documentation ko implementation completion nahi maana jayega. Milestone tabhi complete hoga jab required code, tests aur evidence available hon.
@@ -41,13 +41,13 @@ Self Model:
 
 ## Milestones
 
-### [ ] M0 — Self-State Contracts & Projection Foundation
+### [x] M0 — Self-State Contracts & Projection Foundation ✅
 
 **Scope:** SelfState schema, field ownership metadata, provenance, confidence, timestamps, source references aur projection/update contracts.
 
 **Deliverables:** Core models, validators, source-owner metadata, snapshot API, unit tests.
 
-**Acceptance gate:** Invalid state reject ho; every critical field inspectable, source-tagged aur owner-traceable ho.
+**Acceptance gate:** Invalid state reject ho; every critical field inspectable, source-tagged aur owner-traceable ho. **VERIFIED:** dedicated M0 contract tests 6/6 PASS; immutable snapshot/provenance validation evidence preserved in `docs/evidence/self_model_m0_contract_acceptance.json`.
 
 ---
 
@@ -148,21 +148,34 @@ Examples:
 
 ---
 
-### [ ] M10 — Real-PC Continuous Self-Model Acceptance *(harness implemented; real-PC run pending)*
+### [x] M10 — Real-PC Continuous Self-Model Acceptance ✅
 
 **Scope:** Real Windows session me multi-owner inputs se task/focus/capability/limitation/knowledge/action-result self-state continuously project aur reconcile karna.
 
 **Deliverables:** Acceptance harness, long-session evidence, source-trace report, CPU/memory measurements, conflict/stale-state scenarios.
 
-**Acceptance gate:** Real PC par coherent, fresh, bounded, low-overhead aur owner-traceable self-state maintain ho; contradictions/stale states explicit fail-closed form me surface hon.
+**Acceptance gate:** **PASS.** Real PC par coherent, fresh, bounded, low-overhead aur owner-traceable self-state maintain hua; stale/conflict/missing-owner cases explicit fail-closed rahe.
+
+Accepted evidence:
+
+- duration: **600.000334500015s**
+- CPU: **0.004557289125977865% <= 5%**
+- peak memory: **40.859375 MB <= 64 MB**
+- continuous snapshots: **121**
+- real owner sources: **PASS**
+- stale/conflict/missing-owner gates: **PASS**
+- source trace / field provenance: **PASS**
+
+Evidence: `docs/evidence/self_model_m10_result.json`.
 
 ## Final Completion Gate
 
-Repo tab implementation-complete maana jayega jab:
+Repo completion gate **PASS** hai:
 
-- **M0–M10 sab verified** hon;
-- Self Model kisi owner repository ki responsibility duplicate na kare;
-- every critical self-state field ka provenance/owner traceable ho;
-- stale/conflicted/unknown state explicitly represent ho;
-- integrations evidence-backed hon;
-- M10 real-PC acceptance PASS ho.
+- **M0-M10 = 11/11 VERIFIED**
+- dedicated M0 contract acceptance: **PASS**
+- fresh full regression: **25/25 PASS**
+- owner-traceable M10 real-PC acceptance: **PASS**
+- stale/conflicted/unknown states explicit;
+- ownership boundaries preserved;
+- machine-readable evidence committed under `docs/evidence/`.
