@@ -26,14 +26,48 @@ def _mapping(value: Mapping[str, Any] | None) -> Mapping[str, Any]:
 
 @dataclass(frozen=True)
 class IntegratedSelfState:
-    """Bounded coherent projection assembled from owner repositories."""
+    """Bounded coherent projection assembled from owner repositories.
+
+    M0 contract invariants are enforced here so every critical field remains
+    inspectable, owner/source traceable and read-only at the snapshot surface.
+    """
 
     fields: Mapping[str, SourceValue] = field(default_factory=dict)
     context: Mapping[str, Any] = field(default_factory=dict)
     source_trace: tuple[str, ...] = ()
 
+    def __post_init__(self) -> None:
+        normalized_fields: dict[str, SourceValue] = {}
+        for name, item in dict(self.fields).items():
+            if not isinstance(name, str) or not name.strip():
+                raise ValueError("self-state field names must be non-empty strings")
+            if not isinstance(item, SourceValue):
+                raise TypeError("self-state fields must contain SourceValue records")
+            if name != item.field:
+                raise ValueError(
+                    f"self-state field key {name!r} does not match SourceValue.field {item.field!r}"
+                )
+            if not item.owner or not item.source:
+                raise ValueError("self-state fields require owner and source provenance")
+            normalized_fields[name] = item
+
+        normalized_trace: list[str] = []
+        for source in tuple(self.source_trace):
+            if not isinstance(source, str) or not source.strip():
+                raise ValueError("source_trace entries must be non-empty strings")
+            if source not in normalized_trace:
+                normalized_trace.append(source)
+
+        object.__setattr__(self, "fields", MappingProxyType(normalized_fields))
+        object.__setattr__(self, "context", MappingProxyType(dict(self.context)))
+        object.__setattr__(self, "source_trace", tuple(normalized_trace))
+
     def values(self) -> dict[str, Any]:
         return {name: item.value for name, item in self.fields.items()}
+
+    def snapshot(self) -> Mapping[str, SourceValue]:
+        """Return the immutable owner-traceable self-state field surface."""
+        return self.fields
 
     def owner_of(self, field_name: str) -> str | None:
         item = self.fields.get(field_name)
