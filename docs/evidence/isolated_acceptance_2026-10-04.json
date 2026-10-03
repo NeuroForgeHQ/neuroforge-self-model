@@ -1,0 +1,78 @@
+{
+  "schema_version": "self_model.isolated.acceptance.v1",
+  "captured_at_utc": "2026-10-03T19:57:49.7455453Z",
+  "repository": {
+    "name": "neuroforge-self-model",
+    "branch": "main",
+    "commit": "247c36ce6e052c2637eb4d9cb3836c1a15bc8257",
+    "origin_sync": {"behind": 0, "ahead": 0},
+    "clean_before_testing": true,
+    "clean_after_generated_artifact_cleanup": true
+  },
+  "environment": {
+    "machine": "DESKTOP-2MV0HC8",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.13.15"
+  },
+  "isolated_checks": {
+    "full_unittest_suite": {
+      "status": "PASS",
+      "tests_run": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "m0_contract_tests": {
+      "status": "PASS",
+      "tests_run": 6
+    },
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "implementation_progress": {
+      "complete_milestones": 11,
+      "total_milestones": 11
+    },
+    "m10_committed_evidence_evaluator_recheck": {
+      "status": "PASS",
+      "new_live_pc_run_performed": false,
+      "recorded_live_self_model_sha": "6315d64bb1a87974ff1116c1bd5de73ecfd85b69",
+      "duration_seconds": 600.000334500015,
+      "avg_cpu_percent": 0.004557289125977865,
+      "peak_memory_mb": 40.859375,
+      "snapshot_count": 121,
+      "real_owner_sources": true,
+      "stale_scenario_passed": true,
+      "conflict_scenario_passed": true,
+      "stop_on_missing_owner_evidence": true
+    }
+  },
+  "verified_behaviors": [
+    "blank provenance is rejected",
+    "invalid confidence and freshness are rejected",
+    "field-key/source-value mismatch is rejected",
+    "snapshots reject non-SourceValue fields and remain read-only",
+    "operational projection does not mutate owner lifecycle",
+    "capability evidence remains owner sourced",
+    "unrecognized capability owners are rejected",
+    "general knowledge is rejected from operational self-state",
+    "recent action history is bounded",
+    "unverified success is not projected as success",
+    "verified results require provenance",
+    "conflicting owner evidence is not silently merged",
+    "stale state is consumed from the freshness owner rather than recomputed",
+    "Runtime and Temporal owner boundaries remain separate",
+    "Goals and Attention ownership remains explicit",
+    "Memory context projection is bounded",
+    "Planner projection is read-only/projection-only",
+    "Autonomy view contains no action decision",
+    "state merge rejects owner conflicts",
+    "M10 harness fails closed without real Windows evidence"
+  ],
+  "fresh_cross_repo_runs": {
+    "m6_m9_live_owner_integration": "NOT_RUN_IN_ISOLATED_GATE",
+    "m10_live_pc_collection": "NOT_RUN_IN_ISOLATED_GATE"
+  },
+  "scope_limit": "Current commit 247c36c was freshly verified by the isolated 25-test suite and compile checks. The M10 evaluator was rerun only against previously committed live-PC evidence from implementation SHA 6315d64; no new 600-second live-PC collection or cross-repository owner execution was performed in this isolated gate.",
+  "source_code_bugs_found": 0,
+  "verdict": "PASS"
+}
