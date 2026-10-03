@@ -1,0 +1,96 @@
+{
+  "checks": {
+    "capability_projection_passed": true,
+    "conflict_scenario_passed": true,
+    "consumer_boundaries_passed": true,
+    "continuous_traceable_snapshots": true,
+    "knowledge_projection_passed": true,
+    "missing_owner_fail_closed": true,
+    "real_attention": true,
+    "real_goals": true,
+    "real_memory_contract": true,
+    "real_planner": true,
+    "real_runtime_tools": true,
+    "real_temporal": true,
+    "real_world_model": true,
+    "stale_scenario_passed": true,
+    "verified_action_projection_passed": true
+  },
+  "counts": {
+    "projected_fields_last_snapshot": 12,
+    "snapshots": 121
+  },
+  "generated_at": "2026-10-03T10:37:15.752433+00:00",
+  "harness": {
+    "passed": true,
+    "reasons": []
+  },
+  "machine": {
+    "hostname": "DESKTOP-2MV0HC8",
+    "logical_cpus": 4,
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.13.15"
+  },
+  "owner_revisions": {
+    "neuroforge-attention": "913c093cf89232f4aa2e6e757e1b4c7dd1f4981f",
+    "neuroforge-goals-drives": "72ed6350489ae9dc192b3266eff9ccaf26078e8a",
+    "neuroforge-memory": "9ec61496daafd2409c4f9749909bea677701126b",
+    "neuroforge-planner": "a699f635b875a7425357a2c86adee8d922e1c218",
+    "neuroforge-runtime": "f428140a363d3f7dd9f32cc25842750bf82a802d",
+    "neuroforge-self-model": "6315d64bb1a87974ff1116c1bd5de73ecfd85b69",
+    "neuroforge-temporal-awareness": "6bc9606027bc43dd85d1ace047158f684cdee3c6",
+    "neuroforge-tools": "868ad3d468a1da8e4a27fbb2603cfc0525e83f8e",
+    "neuroforge-world-model": "a64da0d17151048ce2e2ac37344b792f6e7f9c6d"
+  },
+  "scenario_detail": {
+    "conflict": {
+      "reasons": [
+        "conflicting_values",
+        "expected_owner_candidate_available"
+      ],
+      "selected_owner": "runtime",
+      "status": "conflicted"
+    },
+    "goal_attention": {
+      "focus_id": "self-model:m10:focus",
+      "focus_score": 0.8705,
+      "goal_id": "self-model-m10-goal"
+    },
+    "memory": {
+      "query_id": "self-model-m10",
+      "record_count": 0,
+      "retrieval_status": "ok"
+    },
+    "missing_owner": {
+      "reasons": [
+        "no_evidence"
+      ],
+      "status": "unknown"
+    },
+    "planner_runtime_tools": {
+      "action_id": "action:040afabe19dcf1005057a622f72a5a82",
+      "independent_readback": "neuroforge-self-model-m10",
+      "tool_request_id": "request:5d808781db12f97865e5aaba782dd679",
+      "tool_status": "ok"
+    },
+    "stale": {
+      "owner_freshness": "expired",
+      "reasons": [
+        "all_evidence_stale_or_expired"
+      ],
+      "selected": null,
+      "status": "stale"
+    },
+    "world_model": {
+      "entity_id": "self-model:m10",
+      "lifecycle": "active",
+      "properties": "{'working_on': 'self-model-m10', 'artifact': 'C:\\\\Users\\\\Dilip\\\\AppData\\\\Local\\\\Temp\\\\nf-self-model-m10-lr0xakta\\\\self-model-m10-owner.txt', 'verified': True}"
+    }
+  },
+  "schema_version": "self-model-m10-details-v1",
+  "thresholds": {
+    "max_avg_cpu_percent": 5.0,
+    "max_peak_memory_mb": 64.0,
+    "min_duration_seconds": 600.0
+  }
+}

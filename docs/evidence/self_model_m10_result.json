@@ -1,0 +1,20 @@
+{
+  "evidence": {
+    "avg_cpu_percent": 0.004557289125977865,
+    "conflict_scenario_passed": true,
+    "duration_seconds": 600.000334500015,
+    "peak_memory_mb": 40.859375,
+    "platform": "Windows",
+    "real_owner_sources": true,
+    "stale_scenario_passed": true,
+    "stop_on_missing_owner_evidence": true
+  },
+  "passed": true,
+  "reasons": [],
+  "snapshot_count": 121,
+  "thresholds": {
+    "max_avg_cpu_percent": 5.0,
+    "max_peak_memory_mb": 64.0,
+    "min_duration_seconds": 600.0
+  }
+}
