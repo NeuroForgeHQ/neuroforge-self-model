@@ -1,0 +1,90 @@
+name: Self Model Acceptance
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: self-model-acceptance-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  acceptance:
+    name: Regression + M0 + M10 acceptance
+    runs-on: [self-hosted, Windows, X64]
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout Self Model
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Full repository regression
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify M0 contract evidence
+        shell: powershell
+        run: |
+          $e = Get-Content docs/evidence/self_model_m0_contract_acceptance.json -Raw | ConvertFrom-Json
+          if (-not $e.passed) { throw "M0 acceptance evidence is not PASS" }
+          if ($e.m0_tests.passed -ne 6 -or $e.m0_tests.failed -ne 0) { throw "M0 dedicated test evidence mismatch" }
+          if ($e.fresh_full_regression.passed -ne 25 -or $e.fresh_full_regression.failed -ne 0) { throw "M0 full-regression evidence mismatch" }
+
+      - name: Verify accepted implementation has no code drift
+        shell: powershell
+        run: |
+          git diff --exit-code 6315d64bb1a87974ff1116c1bd5de73ecfd85b69 HEAD -- self_model tests tools
+          if ($LASTEXITCODE -ne 0) { throw "Self Model code/tests/tools changed after accepted M10 evidence" }
+
+      - name: Verify accepted owner revisions
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $details = Get-Content docs/evidence/self_model_m10_live_evidence_details.json -Raw | ConvertFrom-Json
+          $owners = @(
+            'neuroforge-runtime',
+            'neuroforge-temporal-awareness',
+            'neuroforge-goals-drives',
+            'neuroforge-attention',
+            'neuroforge-world-model',
+            'neuroforge-memory',
+            'neuroforge-planner',
+            'neuroforge-tools'
+          )
+          $root = Join-Path $env:RUNNER_TEMP 'self-model-owner-check'
+          if (Test-Path $root) { Remove-Item $root -Recurse -Force }
+          New-Item -ItemType Directory -Path $root | Out-Null
+          $env:GCM_INTERACTIVE = 'Never'
+          foreach ($repoName in $owners) {
+            $target = Join-Path $root $repoName
+            git clone --quiet --depth 1 "https://github.com/NeuroForgeHQ/$repoName.git" $target
+            if ($LASTEXITCODE -ne 0) { throw "Failed to clone owner $repoName" }
+            $actual = (git -C $target rev-parse HEAD).Trim()
+            $expected = $details.owner_revisions.$repoName
+            Write-Host "$repoName actual=$actual expected=$expected"
+            if ($actual -ne $expected) { throw "$repoName revision drifted from accepted M10 evidence" }
+          }
+
+      - name: Verify committed M10 real-PC evidence
+        run: python -u tools/run_m10_real_pc_acceptance.py docs/evidence/self_model_m10_live_evidence.json --output docs/evidence/self_model_m10_ci_result.json
+
+      - name: Preserve CI acceptance evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: self-model-acceptance-${{ github.run_number }}
+          path: |
+            docs/evidence/self_model_m0_contract_acceptance.json
+            docs/evidence/self_model_m10_ci_result.json
+            docs/evidence/self_model_m10_live_evidence_details.json
+          if-no-files-found: error
+          retention-days: 90
