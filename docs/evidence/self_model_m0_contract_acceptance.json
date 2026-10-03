@@ -1,0 +1,26 @@
+{
+  "scope": "self_model_m0_contract_acceptance",
+  "passed": true,
+  "self_model_sha": "a4b29643f7de32a6bf4ece21e384048faf9875b9",
+  "machine": {
+    "platform": "Windows-10-10.0.19045-SP0",
+    "hostname": "DESKTOP-2MV0HC8",
+    "python": "3.13.15"
+  },
+  "checks": {
+    "blank_provenance_rejected": true,
+    "invalid_confidence_rejected": true,
+    "invalid_freshness_rejected": true,
+    "field_key_mismatch_rejected": true,
+    "non_source_value_rejected": true,
+    "snapshot_read_only_and_owner_traceable": true
+  },
+  "m0_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "fresh_full_regression": {
+    "passed": 25,
+    "failed": 0
+  }
+}
