@@ -3,7 +3,28 @@
 ## Purpose
 Define the evidence required to complete M10 — Real-PC Continuous Self-Model Acceptance.
 
-The harness exists in self_model/acceptance.py, but M10 is not complete until a real Windows run satisfies the evidence contract.
+The harness exists in `self_model/acceptance.py`, and the required real Windows run has now satisfied the evidence contract.
+
+## Accepted M10 Result
+
+**Status: PASS**
+
+- Self Model revision under test: `6315d64bb1a87974ff1116c1bd5de73ecfd85b69`
+- real Windows duration: **600.000334500015s**
+- average CPU: **0.004557289125977865%**
+- peak memory: **40.859375 MB**
+- accepted snapshots: **121**
+- real owner sources: **true**
+- stale scenario: **PASS**
+- conflict scenario: **PASS**
+- missing-owner fail-closed: **PASS**
+- source trace / owner provenance: **PASS**
+
+Evidence:
+
+- `docs/evidence/self_model_m10_live_evidence.json`
+- `docs/evidence/self_model_m10_live_evidence_details.json`
+- `docs/evidence/self_model_m10_result.json`
 
 ## Required components
 Minimum repository:
@@ -123,4 +144,4 @@ Unit-test PASS     != Real-PC acceptance
 Harness exists     != Real-PC acceptance
 ~~~
 
-Only a real Windows run with real owner-source evidence can complete M10.
+Only a real Windows run with real owner-source evidence can complete M10. That gate is now satisfied by the preserved acceptance evidence above.
