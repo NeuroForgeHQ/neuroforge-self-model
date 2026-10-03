@@ -17,6 +17,30 @@ Iska purpose AI ko continuously ye samajhne dena hai ki:
 
 > **Self Model = NeuroForge ka structured internal answer to “main abhi kis state me hoon?”**
 
+## Current Verified Status
+
+**M0-M10: 11/11 VERIFIED — 100% strict acceptance.**
+
+```text
+[████████████████████] 100%
+```
+
+Verification summary:
+
+- dedicated M0 contract acceptance: **6/6 PASS**
+- fresh full repository regression: **25/25 PASS**
+- M10 real Windows continuous acceptance: **PASS**
+- duration: **600.0003345 seconds**
+- average CPU: **0.0045573%** / limit 5%
+- peak memory: **40.86 MB** / limit 64 MB
+- continuous source-traceable snapshots: **121**
+- Runtime/Tools, Planner, Temporal, Goals, Attention, World Model and Memory owner contracts exercised
+- stale/conflict/missing-owner fail-closed behavior: **PASS**
+- Planner/Autonomy consumer decision boundaries: **PASS**
+
+Machine-readable evidence is preserved under `docs/evidence/`.
+
+
 Ye consciousness, identity ya biological self-awareness ka claim nahi karta. Ye machine-readable operational self-state hai.
 
 ## Goal
