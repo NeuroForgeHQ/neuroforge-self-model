@@ -2,82 +2,121 @@
 
 ## Current verified scope
 
-M1-M9 are implemented and locally validated. M10 acceptance harness is implemented, but real Windows evidence is still pending.
+**M0-M10: 11 / 11 VERIFIED — 100% strict acceptance.**
 
-```text
-M0  Self-State Contracts & Projection Foundation          [ ]
-M1  Current Operational-State Projection                 [x]
-M2  Capability & Limitation Projection                   [x]
-M3  Self-Relevant Knowledge State & Uncertainty          [x]
-M4  Recent Action & Outcome Projection                   [x]
-M5  Conflict Reconciliation & Freshness Consumption      [x]
-M6  Runtime + Temporal Awareness Integration             [x]
-M7  Goals & Drives + Attention Integration               [x]
-M8  World Model + Memory Integration                     [x]
-M9  Planner + Autonomy Consumer Integration              [x]
-M10 Real-PC Continuous Self-Model Acceptance             [ ]  harness ready
-```
+~~~text
+M0  Self-State Contracts & Projection Foundation          [x]
+M1  Current Operational-State Projection                  [x]
+M2  Capability & Limitation Projection                    [x]
+M3  Self-Relevant Knowledge State & Uncertainty           [x]
+M4  Recent Action & Outcome Projection                    [x]
+M5  Conflict Reconciliation & Freshness Consumption       [x]
+M6  Runtime + Temporal Awareness Integration              [x]
+M7  Goals & Drives + Attention Integration                [x]
+M8  World Model + Memory Integration                      [x]
+M9  Planner + Autonomy Consumer Integration               [x]
+M10 Real-PC Continuous Self-Model Acceptance              [x]
+~~~
 
-Overall verified milestone completion: **9 / 11 (82%)**.
+~~~text
+[████████████████████] 100%  11 / 11 milestones
+~~~
 
-## Implementation evidence
+## M0 Contract Acceptance
 
-Core:
+M0 now has an explicit code + test + evidence gate.
 
-- `self_model/core.py`
-- `self_model/integration.py`
-- `self_model/acceptance.py`
-- `self_model/__init__.py`
+Verified invariants:
 
-Tests:
+- blank provenance rejected;
+- invalid confidence rejected;
+- invalid freshness rejected;
+- field-key / SourceValue mismatch rejected;
+- non-SourceValue snapshot fields rejected;
+- IntegratedSelfState snapshot surface is read-only;
+- every projected field remains owner/source traceable.
 
-- `tests/test_m1_m5.py`
-- `tests/test_m6_m10.py`
+Dedicated M0 tests: **6 / 6 PASS**.
 
-## Local validation
+Evidence:
 
-M1-M5 focused validation:
+- `docs/evidence/self_model_m0_contract_acceptance.json`
 
-```text
-11 tests PASS
-```
+M0 accepted revision:
 
-M6-M10 code-path suite:
+`a4b29643f7de32a6bf4ece21e384048faf9875b9`
 
-```text
-8 test methods currently present
-```
+## Fresh Repository Regression
 
-An older status note recorded 7 tests PASS. That numeric count is stale/inconsistent with the current test file and must not be treated as fresh validation evidence until the suite is rerun.
+Fresh Windows checkout after M0 contract hardening:
 
-No CI was run.
+- **25 / 25 tests PASS**
+- Python **3.13.15**
 
-## Verified boundaries
+## M10 Real-PC Continuous Acceptance
 
-- M6 consumes Runtime/Planner operational state and Temporal Awareness metadata without duplicating temporal calculation.
-- M7 preserves Goals & Drives ownership of objectives/blockers and Attention ownership of focus.
-- M8 keeps World Model as live environment owner and Memory as historical owner; memory projection is bounded.
-- M9 produces read-only Planner/Autonomy views and does not emit permission, risk, authorization or action decisions.
-- M10 harness fails closed when evidence is not real Windows/owner-source evidence.
+M10 ran on the real NeuroForge Windows machine using current checked-out owner repositories.
 
-## M10 status
+Result:
 
-The M10 harness is implemented in `self_model/acceptance.py`.
+- strict evaluator: **PASS**
+- reasons: none
+- duration: **600.000334500015 seconds**
+- average CPU: **0.004557289125977865%** (limit 5%)
+- peak memory: **40.859375 MB** (limit 64 MB)
+- continuous source-traceable snapshots: **121**
 
-M10 is **not accepted yet** because its milestone gate explicitly requires a real Windows session with:
+Real owner contracts exercised:
 
-- real owner-source inputs;
-- continuous source-traceable snapshots;
-- long-session evidence;
-- CPU/memory measurements;
-- stale-state scenario evidence;
-- conflict scenario evidence;
-- fail-closed behavior when owner evidence is missing.
+- Runtime -> Tools real file action
+- Planner ActionIntent
+- Temporal Awareness freshness
+- Goals & Drives goal state
+- Attention focus selection
+- World Model entity/self relation
+- Memory bounded retrieval context contract
+- Tools capability registry
 
-This must be run later on the real NeuroForge Windows PC. Simulated data or CI must not be used to claim M10 PASS.
+Additional verified Self Model behavior:
 
-## CI status
+- capability projection: **PASS**
+- verified vs unverified action outcome separation: **PASS**
+- self-relevant knowledge projection: **PASS**
+- stale owner evidence remains stale: **PASS**
+- conflicting owner state remains conflicted: **PASS**
+- missing owner evidence fails closed: **PASS**
+- Planner/Autonomy consumer views remain decision-free: **PASS**
+- every accepted snapshot has non-empty source trace and owner/source-tagged fields: **PASS**
 
-**HOLD — not run.**
+M10 implementation revision exercised:
 
-CI can be done later together with the other NeuroForge repositories, as requested.
+`6315d64bb1a87974ff1116c1bd5de73ecfd85b69`
+
+Evidence:
+
+- `docs/evidence/self_model_m10_live_evidence.json`
+- `docs/evidence/self_model_m10_live_evidence_details.json`
+- `docs/evidence/self_model_m10_result.json`
+
+## Ownership Boundaries Verified
+
+Self Model remains projection-only:
+
+- Runtime owns task/session lifecycle;
+- Planner owns planning/executable intent;
+- Goals & Drives owns goals/priorities;
+- Attention owns focus selection;
+- Temporal Awareness owns freshness/time calculations;
+- World Model owns live environment state;
+- Memory owns retained history;
+- Tools/Autonomy own execution/permission/action decisions.
+
+Self Model projects, reconciles, traces and exposes owner evidence; it does not silently take ownership.
+
+## Final Completion Rule
+
+The declared M0-M10 scope is complete:
+
+> **IMPLEMENTED = TESTED = OWNER-TRACEABLE = REAL-PC ACCEPTED for NeuroForge Self Model M0-M10.**
+
+This is an operational self-state model; it is not a claim of consciousness or unrestricted self-awareness.
